@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSON Data</title>
+    <title>Bus Data</title>
 </head>
 <body>
-    <h1>JSON Data Hosting</h1>
+    <h1>Bus Data Hosting</h1>
     
-    <a href="./data/bus_schedules.json">JSON 파일 링크</a>
+    <h2>Data Links:</h2>
+    <ul>
+        <li><a href="./data/bus_schedules.json">Bus Schedules JSON</a></li>
+        <li><a href="./data/arrive.csv">Bus Arrive Data CSV</a></li>
+    </ul>
 
     <script>
-        
+        // JSON 데이터 로드
         fetch('./data/bus_schedules.json')
             .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.error('Error:', error));
+            .then(data => console.log('JSON data:', data))
+            .catch(error => console.error('Error loading JSON:', error));
+        
+        // CSV 데이터 로드
+        fetch('./data/arrive.csv')
+            .then(response => response.text())
+            .then(data => console.log('CSV data loaded'))
+            .catch(error => console.error('Error loading CSV:', error));
     </script>
 </body>
 </html>
